@@ -3,6 +3,8 @@
 div.rect_class {
     width: 70%;
     height: 100px;
+
+    /* Make inner part of rectangle transparent */
     background-color: rgba(255, 255, 255, 0.1);
 
     /* Center vertically AND horizontally */
@@ -14,7 +16,7 @@ div.rect_class {
 	/* This to solve "the content will not be cut when the window is smaller than the content": */
 	max-width: 100%;
 	max-height: 100%;
-	overflow:auto;
+	overflow: auto;
 
 	/* BORDER */
 	border-style: solid;

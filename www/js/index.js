@@ -44,7 +44,19 @@ var app = {
         var rect_coords = rect.getBoundingClientRect();
         var x_coord = rect_coords.left, y_coord = rect_coords.top;
 
-        
+        button.onclick = function(){
+            // Get rect width and height\
+            var rect_width = rect.offsetWidth, rect_height = rect.offsetHeight;
+
+            CameraPreview.takePicture(function(base64PictureData) {
+
+                // We pass width, height, x and y coordinates of our rectangle to crop func
+                // Our crop function return cropped image in base64 format
+                var cropped_img = crop(base64PictureData, rect_width, rect_height, x_coord, y_coord);
+
+                // alert('cropped_img: ' + cropped_img);
+            })
+        };
     },
 
     // Update DOM on a Received Event
