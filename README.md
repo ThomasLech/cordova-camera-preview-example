@@ -34,3 +34,6 @@ The only folder to modify is **_www_**.
 `cordova run android|ios|browser`  
 ... or serve files on a localhost:  
 `cordova serve`
+
+## Results
+![cordova-camera-preview-results](https://user-images.githubusercontent.com/22115481/27040520-85f44652-4f91-11e7-8e48-9a5334675414.png)
