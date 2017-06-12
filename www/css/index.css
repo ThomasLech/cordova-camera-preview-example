@@ -1,7 +1,7 @@
 /* index.css */
 
 div.rect_class {
-    width: 70%;
+    width: 300px;
     height: 100px;
 
     /* Make inner part of rectangle transparent */
@@ -18,10 +18,11 @@ div.rect_class {
 	max-height: 100%;
 	overflow: auto;
 
-	/* BORDER */
-	border-style: solid;
-	border-width: 1px;
-	border-color: #FFFFFF;
+	/* COOL BORDER */
+	border-width: 25px;
+    border-style: solid;
+    /* You need to place border.png into img folder */
+	border-image: url(../img/border.png) 50 round;
 }
 
 button.btn_class {

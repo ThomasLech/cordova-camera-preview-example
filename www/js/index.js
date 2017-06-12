@@ -12,6 +12,7 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         // Method below REQUIRES elements we removed from body in index.html
+        // So we should comment it out.
         // this.receivedEvent('deviceready');
 
         let options = {
@@ -45,7 +46,7 @@ var app = {
         var x_coord = rect_coords.left, y_coord = rect_coords.top;
 
         button.onclick = function(){
-            // Get rect width and height\
+            // Get rect width and height
             var rect_width = rect.offsetWidth, rect_height = rect.offsetHeight;
 
             CameraPreview.takePicture(function(base64PictureData) {
@@ -54,7 +55,7 @@ var app = {
                 // Our crop function return cropped image in base64 format
                 var cropped_img = crop(base64PictureData, rect_width, rect_height, x_coord, y_coord);
 
-                // alert('cropped_img: ' + cropped_img);
+                // Now we are ready to send cropped image TO SERVER
             })
         };
     },

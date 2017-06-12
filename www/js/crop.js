@@ -36,19 +36,6 @@ var crop = function(base64PictureData, rect_width, rect_height, x_coord, y_coord
 		// Get base64 representation of cropped image
 		var cropped_img_base64 = canvas.toDataURL();
 
-		// SEND cropped image to server
-		$.post("end-point_name",
-			{
-				base64: cropped_img_base64
-			},
-			function done(data, textStatus, jqXHR){
-				// alert("Data: " + data + "\nStatus: " + status);
-			},
-			function fail(jqXHR, textStatus, errorThrown){
-				alert(textStatus + ', ' + errorThrown)
-			}
-		);
-
-		// $.post('http://10.0.0.71:8000/resolver/', {base64: cropped_img_base64});
+		return cropped_img_base64;
 	};
 };
