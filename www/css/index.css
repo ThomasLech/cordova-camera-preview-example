@@ -25,15 +25,20 @@ div.rect_class {
 	border-image: url(../img/border.png) 50 round;
 
 	/* SHADOW EFFECT darkens everything outside rectangle */
-	box-shadow: 0 0 500px 5000px rgba(0, 0, 0, 0.6);
+	box-shadow: 0 0 500px 5000px rgba(0, 0, 0, 0.4);
 }
 
 img.btn_class {
-	width: 60px;
-	height: 60px;
+	width: 75px;
+	height: 75px;
 
+	/* Center horizontally */
 	position: absolute; /*it can be fixed too*/
 	left: 0; right: 0;
 	bottom: 50px;
 	margin: auto;
 }
+
+/*div:active {
+	border-color: #F2F2F2;
+}*/

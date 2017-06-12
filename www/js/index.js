@@ -33,7 +33,8 @@ var app = {
         var rect = document.createElement('div');
         var button = document.createElement('img');
         // Make button look nice
-        button.src = "../img/btn_icon.png";
+        // You must specify path relative to www folder
+        button.src = 'img/btn_icon_mini.png';
 
         // Add styles
         rect.className += 'rect_class';
