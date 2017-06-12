@@ -28,7 +28,7 @@ div.rect_class {
 	box-shadow: 0 0 500px 5000px rgba(0, 0, 0, 0.6);
 }
 
-button.btn_class {
+img.btn_class {
 	width: 60px;
 	height: 60px;
 
@@ -36,8 +36,4 @@ button.btn_class {
 	left: 0; right: 0;
 	bottom: 50px;
 	margin: auto;
-
-	border: none;
-	/* Make button circle */
-	border-radius: 50px;
 }

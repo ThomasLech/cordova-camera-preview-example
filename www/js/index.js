@@ -31,7 +31,9 @@ var app = {
 
         // Create a rectangle & button
         var rect = document.createElement('div');
-        var button = document.createElement('button');
+        var button = document.createElement('img');
+        // Make button look nice
+        button.src = "../img/btn_icon.png";
 
         // Add styles
         rect.className += 'rect_class';
