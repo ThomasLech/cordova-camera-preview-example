@@ -65,7 +65,7 @@ var app = {
                         },
                         function(data, status, xhr) {
                             // Success callback
-                            alert('Status: ' + status + '\Data: ' + data);
+                            alert('Status: ' + status + '\nData: ' + data);
                         }
                     )
                     .fail(function(error, status, xhr) {
