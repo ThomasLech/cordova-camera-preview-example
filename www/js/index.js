@@ -29,6 +29,7 @@ var app = {
         // Take a look at docs: https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview#methods
         CameraPreview.startCamera(options);
 
+
         // Create a rectangle & button
         var rect = document.createElement('div');
         var button = document.createElement('img');
@@ -55,11 +56,25 @@ var app = {
             CameraPreview.takePicture(function(base64PictureData) {
 
                 // We pass width, height, x and y coordinates of our rectangle to crop func
-                // Our crop function return cropped image in base64 format
-                var cropped_img = crop(base64PictureData, rect_width, rect_height, x_coord, y_coord);
+                // BEFORE crop function ends, it sends cropped base64 image to a server
+                var cropped_img = crop(base64PictureData, rect_width, rect_height, x_coord, y_coord, function(cropped_img_base64) {
 
-                // Now we are ready to send cropped image TO SERVER
-            })
+                    $.post("http://10.0.0.68:8000/images/", 
+                        {
+                            image: cropped_img_base64
+                        },
+                        function(data, status, xhr) {
+                            // Success callback
+                            alert('Status: ' + status + '\Data: ' + data);
+                        }
+                    )
+                    .fail(function(error, status, xhr) {
+                        // Failure callback
+                        alert('Status: ' + status + '\nReason: ' + xhr);
+                    });
+
+                });
+            });
         };
     },
 

@@ -1,6 +1,6 @@
 // crop.js
 
-var crop = function(base64PictureData, rect_width, rect_height, x_coord, y_coord) {
+var crop = function(base64PictureData, rect_width, rect_height, x_coord, y_coord, callback) {
 
 	// image will contain ORIGINAL image
 	var image = new Image();
@@ -35,6 +35,9 @@ var crop = function(base64PictureData, rect_width, rect_height, x_coord, y_coord
 
 		// Get base64 representation of cropped image
 		var cropped_img_base64 = canvas.toDataURL();
+
+		// Now we are ready to send cropped image TO SERVER
+		callback(cropped_img_base64);
 
 		return cropped_img_base64;
 	};
