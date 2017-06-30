@@ -34,11 +34,15 @@ img.btn_class {
 
 	/* Center horizontally */
 	position: absolute; /*it can be fixed too*/
-	left: 0; right: 0;
-	bottom: 50px;
+
 	margin: auto;
 }
 
-/*div:active {
-	border-color: #F2F2F2;
-}*/
+img.flash_class {
+    top: 20px; right: 20px;
+}
+
+img.take_pic_class {
+    bottom: 20px;
+    left: 0px; right: 0px;
+}
