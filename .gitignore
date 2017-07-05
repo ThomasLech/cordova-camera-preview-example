@@ -7,7 +7,7 @@ res/
 
 config.xml
 package.json
-.npmignore
+*.npmignore
 
 # Windows image file caches
 Thumbs.db
