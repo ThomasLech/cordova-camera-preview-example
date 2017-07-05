@@ -29,8 +29,8 @@ div.rect_class {
 }
 
 img.btn_class {
-	width: 75px;
-	height: 75px;
+	width: 65px;
+	height: 65px;
 
 	/* Center horizontally */
 	position: absolute; /*it can be fixed too*/

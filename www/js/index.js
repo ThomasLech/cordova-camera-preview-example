@@ -68,7 +68,7 @@ var app = {
                 // BEFORE crop function ends, it sends cropped base64 image to a server
                 var cropped_img = crop(base64PictureData, rect_width, rect_height, x_coord, y_coord, function(cropped_img_base64) {
 
-                    $.post("http://192.168.0.52:8000/images/",
+                    $.post("http://192.168.1.32:8000/images/",
                         {
                             image: cropped_img_base64
                         },
