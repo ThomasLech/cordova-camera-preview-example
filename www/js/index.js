@@ -35,24 +35,32 @@ var app = {
         // Create a rectangle & take_pic_btn
         var rect = document.createElement('div');
         var take_pic_btn = document.createElement('img');
-        var flash_btn = document.createElement('img');
+        var flash_on_btn = document.createElement('img');
+        var flash_off_btn = document.createElement('img');
         // Make take_pic_btn look nice
         // You must specify path relative to www folder
         take_pic_btn.src = 'img/btn_icon_mini.png';
-        flash_btn.src = 'img/flash_icon.svg';
+        flash_on_btn.src = 'img/flash_on.svg';
+        flash_off_btn.src = 'img/flash_off.svg';
 
         // Add styles
         rect.className += 'rect_class';
         take_pic_btn.className += 'btn_class';
-        flash_btn.className += 'btn_class';
+        flash_on_btn.className += 'btn_class';
+        flash_off_btn.className += 'btn_class';
 
         take_pic_btn.className += ' take_pic_class'
-        flash_btn.className += ' flash_class'
+        flash_on_btn.className += ' flash_class'
+        flash_off_btn.className += ' flash_class'
+
+        // Hide flash_off btn by default
+        flash_off_btn.style.visibility = 'hidden';
 
         // Append to body section
         document.body.appendChild(rect);
         document.body.appendChild(take_pic_btn);
-        document.body.appendChild(flash_btn);
+        document.body.appendChild(flash_on_btn);
+        document.body.appendChild(flash_off_btn);
 
         // Get rectangle coordinates
         var rect_coords = rect.getBoundingClientRect();
@@ -68,7 +76,7 @@ var app = {
                 // BEFORE crop function ends, it sends cropped base64 image to a server
                 var cropped_img = crop(base64PictureData, rect_width, rect_height, x_coord, y_coord, function(cropped_img_base64) {
 
-                    $.post("http://192.168.1.32:8000/images/",
+                    $.post("http://192.168.1.32:8000/api/images/create/",
                         {
                             image: cropped_img_base64
                         },
@@ -86,10 +94,19 @@ var app = {
             });
         };
 
-        flash_btn.onclick = function() {
-            flash_mode = ((flash_mode == 'on') ? 'off' : 'on');
+        flash_on_btn.onclick = function() {
+            flash_mode = 'on';
+            flash_off_btn.style.visibility = 'visible';
+            flash_on_btn.style.visibility = 'hidden';
 
-            // Turn camera flash light on
+            CameraPreview.setFlashMode(flash_mode);
+        }
+
+        flash_off_btn.onclick = function() {
+            flash_mode = 'off';
+            flash_off_btn.style.visibility = 'hidden';
+            flash_on_btn.style.visibility = 'visible';
+
             CameraPreview.setFlashMode(flash_mode);
         }
     },
