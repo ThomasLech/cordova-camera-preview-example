@@ -36,4 +36,4 @@ The only folder to modify is **_www_**.
 `cordova serve`
 
 ## Results
-![cordova-camera-preview-results](https://user-images.githubusercontent.com/22115481/27040520-85f44652-4f91-11e7-8e48-9a5334675414.png)
+![screenshot](https://user-images.githubusercontent.com/22115481/27865265-31ea7afa-6192-11e7-86ce-e71a348a682b.jpg)
