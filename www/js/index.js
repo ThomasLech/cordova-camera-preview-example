@@ -12,7 +12,7 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         // Method below REQUIRES elements we removed from body in index.html
-        // So we should comment it out.
+        // So we comment it out.
         // this.receivedEvent('deviceready');
 
         let options = {
@@ -20,10 +20,10 @@ var app = {
             y: 0,
             width: window.screen.width,
             height: window.screen.height,
-            camera: CameraPreview.CAMERA_DIRECTION.BACK,
-            toBack: true,
-            tapPhoto: false,
-            tapFocus: true,
+            camera: CameraPreview.CAMERA_DIRECTION.BACK,  // Front/back camera
+            toBack: true,   // Set to true if you want your html in front of your preview
+            tapPhoto: false,  // Tap to take photo
+            tapFocus: true,   // Tap to focus
             previewDrag: false
         };
 
@@ -32,23 +32,19 @@ var app = {
         CameraPreview.startCamera(options);
 
 
-        // Create a rectangle & take_pic_btn
+        // Create a rectangle & buttons
         var rect = document.createElement('div');
         var take_pic_btn = document.createElement('img');
         var flash_on_btn = document.createElement('img');
         var flash_off_btn = document.createElement('img');
-        // Make take_pic_btn look nice
+
         // You must specify path relative to www folder
-        take_pic_btn.src = 'img/btn_icon_mini.png';
+        take_pic_btn.src = 'img/take_photo.png';
         flash_on_btn.src = 'img/flash_on.svg';
         flash_off_btn.src = 'img/flash_off.svg';
 
         // Add styles
         rect.className += 'rect_class';
-        take_pic_btn.className += 'btn_class';
-        flash_on_btn.className += 'btn_class';
-        flash_off_btn.className += 'btn_class';
-
         take_pic_btn.className += ' take_pic_class'
         flash_on_btn.className += ' flash_class'
         flash_off_btn.className += ' flash_class'
@@ -67,17 +63,19 @@ var app = {
         var x_coord = rect_coords.left, y_coord = rect_coords.top;
 
         take_pic_btn.onclick = function(){
-            // Get rect width and height
+            // Get rectangle size
             var rect_width = rect.offsetWidth, rect_height = rect.offsetHeight;
 
             CameraPreview.takePicture(function(base64PictureData) {
 
-                // We pass width, height, x and y coordinates of our rectangle to crop func
-                // BEFORE crop function ends, it sends cropped base64 image to a server
+                // We pass width, height, x and y coordinates of our rectangle to crop method
+                // At the very end, crop methods send cropped image to server
                 var cropped_img = crop(base64PictureData, rect_width, rect_height, x_coord, y_coord, function(cropped_img_base64) {
 
-                    $.post("http://192.168.1.32:8000/api/images/create/",
+                    // Ending slash is necessary
+                    $.post("http://192.168.42.25:8000/api/images/create/",
                         {
+                            // Data sent along with a request
                             image: cropped_img_base64
                         },
                         function(data, status, xhr) {

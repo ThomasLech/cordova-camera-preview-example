@@ -9,40 +9,37 @@ div.rect_class {
 
     /* Center vertically AND horizontally */
     position: absolute; /*it can be fixed too*/
-	left: 0; right: 0;
-	top: 0; bottom: 0;
-	margin: auto;
+  	left: 0; right: 0;
+  	top: 0; bottom: 0;
+  	margin: auto;
 
-	/* This to solve "the content will not be cut when the window is smaller than the content": */
-	max-width: 100%;
-	max-height: 100%;
-	overflow: auto;
+  	/* This to solve "the content will not be cut when the window is smaller than the content": */
+  	max-width: 100%;
+  	max-height: 100%;
+  	overflow: auto;
 
-	/* COOL BORDER */
-	border-width: 20px;
+  	/* COOL BORDER */
+  	border-width: 20px;
     border-style: solid;
-    /* You need to place border.png into img folder */
-	border-image: url(../img/border.png) 50 round;
+      /* You need to place border.png into img folder */
+  	border-image: url(../img/border.png) 50 round;
 
-	/* SHADOW EFFECT darkens everything outside rectangle */
-	box-shadow: 0 0 500px 5000px rgba(0, 0, 0, 0.4);
-}
-
-img.btn_class {
-	width: 75px;
-	height: 75px;
-
-	/* Center horizontally */
-	position: absolute; /*it can be fixed too*/
-
-	margin: auto;
+  	/* SHADOW EFFECT darkens everything outside rectangle */
+  	box-shadow: 0 0 500px 5000px rgba(0, 0, 0, 0.4);
 }
 
 img.flash_class {
+    /* Center horizontally */
+    position: absolute; margin: auto;
+
+    width: 55px; height: 55px;
     top: 20px; right: 20px;
 }
 
 img.take_pic_class {
-    bottom: 20px;
-    left: 0px; right: 0px;
+    /* Center horizontally */
+    position: absolute; margin: auto;
+
+    width: 75px; height: 75px;
+    left: 0px; right: 0px; bottom: 20px;
 }
