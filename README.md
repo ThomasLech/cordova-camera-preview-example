@@ -1,3 +1,6 @@
+## Tutorial
+http://blog.mathocr.com/2017/06/09/beautiful-camera-preview-with-cordova.html
+
 ## Installation
 1. Install nodejs:  
 https://nodejs.org/en/download/  
@@ -36,4 +39,4 @@ The only folder to modify is **_www_**.
 `cordova serve`
 
 ## Results
-![screenshot](https://user-images.githubusercontent.com/22115481/27865265-31ea7afa-6192-11e7-86ce-e71a348a682b.jpg)
+![screenshot](https://user-images.githubusercontent.com/22115481/27963916-c4c395aa-6336-11e7-90a4-ea54eb3d14c4.jpg)
